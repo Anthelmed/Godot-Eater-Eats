@@ -1,0 +1,116 @@
+[gd_scene load_steps=9 format=3 uid="uid://bpv8eur8o28r0"]
+
+[ext_resource type="Texture2D" uid="uid://b7ha3858qpeb3" path="res://user_interface/delivery_card/delivery_card_background.png" id="1_4e3yt"]
+[ext_resource type="Texture2D" uid="uid://dice6t3fdnow1" path="res://user_interface/delivery_card/delivery_card_border.png" id="2_gyrcu"]
+[ext_resource type="Texture2D" uid="uid://bhohcskfucxa4" path="res://icons/Restaurant.svg" id="3_v6tr4"]
+[ext_resource type="FontFile" uid="uid://cmkhdojjin772" path="res://fonts/LondrinaSolid-Regular.ttf" id="4_csw21"]
+[ext_resource type="Texture2D" uid="uid://djtas0hptda6o" path="res://icons/Home.svg" id="4_hd3xg"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_x27lh"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_lr8ei"]
+font = ExtResource("4_csw21")
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_scwp7"]
+font = ExtResource("4_csw21")
+font_size = 24
+
+[node name="delivery_card" type="Control"]
+custom_minimum_size = Vector2(390, 130)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 390.0
+offset_bottom = 130.0
+rotation = -0.0523599
+scale = Vector2(0.95, 0.95)
+
+[node name="delivery_card_background" type="TextureRect" parent="."]
+modulate = Color(0.937255, 0.345098, 0.145098, 1)
+material = SubResource("CanvasItemMaterial_x27lh")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -195.0
+offset_top = -65.0
+offset_right = 200.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_4e3yt")
+expand_mode = 1
+
+[node name="delivery_card_border" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -188.0
+offset_top = -58.0
+offset_right = 188.0
+offset_bottom = 58.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_gyrcu")
+expand_mode = 1
+
+[node name="delivery_card_content_icon_restaurant" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 25.0
+offset_top = -40.0
+offset_right = 105.0
+offset_bottom = 40.0
+grow_vertical = 2
+texture = ExtResource("3_v6tr4")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="delivery_card_content_icon_house" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 25.0
+offset_top = -42.5
+offset_right = 110.0
+offset_bottom = 42.5
+grow_vertical = 2
+texture = ExtResource("4_hd3xg")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="delivery_card_content_title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 121.0
+offset_top = -42.0
+offset_right = 355.0
+grow_vertical = 2
+text = "DELIVERY #2 - $5"
+label_settings = SubResource("LabelSettings_lr8ei")
+vertical_alignment = 2
+
+[node name="delivery_card_content_text" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 121.0
+offset_top = -3.0
+offset_right = 355.0
+offset_bottom = 39.0
+grow_vertical = 2
+text = "Go to the restaurant"
+label_settings = SubResource("LabelSettings_scwp7")
+vertical_alignment = 1

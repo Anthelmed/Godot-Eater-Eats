@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7k4opt3ei2h3"]
+
+[ext_resource type="PackedScene" uid="uid://oe0opp8gn71j" path="res://car_scenes/car_stationwagon.tscn" id="1_624vk"]
+[ext_resource type="Script" path="res://scripts/npc_vehicule.gd" id="2_y8y48"]
+
+[node name="car_stationwagon" instance=ExtResource("1_624vk")]
+script = ExtResource("2_y8y48")

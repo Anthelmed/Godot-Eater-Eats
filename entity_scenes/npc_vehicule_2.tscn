@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://cuwyqeyd7jht"]
+
+[ext_resource type="PackedScene" uid="uid://tdpvk5omsa0q" path="res://car_scenes/car_police.tscn" id="1_6nnuv"]
+[ext_resource type="Script" path="res://scripts/npc_vehicule.gd" id="2_5n362"]
+
+[node name="car_police" instance=ExtResource("1_6nnuv")]
+script = ExtResource("2_5n362")

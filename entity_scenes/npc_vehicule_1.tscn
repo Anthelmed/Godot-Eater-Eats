@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://dnylbdnc6tcij"]
+
+[ext_resource type="PackedScene" uid="uid://c10bi733cv3rj" path="res://car_scenes/car_hatchback.tscn" id="1_yjmfa"]
+[ext_resource type="Script" path="res://scripts/npc_vehicule.gd" id="2_5r0wm"]
+
+[node name="car_hatchback" instance=ExtResource("1_yjmfa")]
+script = ExtResource("2_5r0wm")

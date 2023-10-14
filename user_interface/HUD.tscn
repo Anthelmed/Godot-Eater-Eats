@@ -1,0 +1,95 @@
+[gd_scene load_steps=7 format=3 uid="uid://dapb6mhha6t2q"]
+
+[ext_resource type="Texture2D" uid="uid://dirl1aurefoj7" path="res://user_interface/00_HUD_zone_layout 1.png" id="1_gjde7"]
+[ext_resource type="PackedScene" uid="uid://bpv8eur8o28r0" path="res://user_interface/delivery_card/delivery_card_scene.tscn" id="1_hl2i8"]
+[ext_resource type="Script" path="res://user_interface/heads-up_display.gd" id="1_k0u7r"]
+[ext_resource type="FontFile" uid="uid://cmkhdojjin772" path="res://fonts/LondrinaSolid-Regular.ttf" id="4_l3f4q"]
+[ext_resource type="Script" path="res://scripts/debug_fps_meter.gd" id="4_pojnu"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3kgjc"]
+font = ExtResource("4_l3f4q")
+font_size = 64
+outline_size = 20
+outline_color = Color(0.101961, 0.101961, 0.101961, 1)
+shadow_size = 20
+shadow_color = Color(0.101961, 0.101961, 0.101961, 1)
+shadow_offset = Vector2(5, 5)
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_k0u7r")
+
+[node name="debug_zone_layout" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("1_gjde7")
+
+[node name="debug_fps_meter_label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1823.0
+offset_top = 950.0
+offset_right = -1523.0
+offset_bottom = 1050.0
+grow_horizontal = 0
+rotation = -0.0349066
+scale = Vector2(0.95, 0.95)
+text = "FPS: 60"
+label_settings = SubResource("LabelSettings_3kgjc")
+vertical_alignment = 1
+script = ExtResource("4_pojnu")
+
+[node name="money_label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -380.0
+offset_top = 31.0
+offset_right = -80.0
+offset_bottom = 131.0
+grow_horizontal = 0
+rotation = 0.0872665
+scale = Vector2(0.95, 0.95)
+text = "MONEY: $481"
+label_settings = SubResource("LabelSettings_3kgjc")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="time_label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -388.0
+offset_top = 159.0
+offset_right = -87.9999
+offset_bottom = 259.0
+grow_horizontal = 0
+rotation = -0.0872665
+scale = Vector2(0.95, 0.95)
+text = "TIME: 00:12"
+label_settings = SubResource("LabelSettings_3kgjc")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="delivery_card_container" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 97.0
+offset_top = 55.0
+offset_right = 1395.0
+offset_bottom = 195.0
+
+[node name="delivery_card" parent="delivery_card_container" instance=ExtResource("1_hl2i8")]
+layout_mode = 2
+offset_top = 11.0
+offset_bottom = 141.0

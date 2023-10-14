@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cov6m0kx6vjkn"]
+
+[ext_resource type="PackedScene" uid="uid://y8cka5ubccnu" path="res://KayKit Citybuilder/park_base_decorated_trees.gltf" id="1_xgfkh"]
+[ext_resource type="Material" uid="uid://cn4dkrod22jr7" path="res://city_toon_material.tres" id="2_gsvj1"]
+
+[node name="park_base_decorated_trees" instance=ExtResource("1_xgfkh")]
+
+[node name="park_base_decorated_trees2" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_gsvj1")
