@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bpv8eur8o28r0" path="res://user_interface/delivery_card/delivery_card_scene.tscn" id="1_hl2i8"]
 [ext_resource type="Script" path="res://user_interface/heads-up_display.gd" id="1_k0u7r"]
 [ext_resource type="FontFile" uid="uid://cmkhdojjin772" path="res://fonts/LondrinaSolid-Regular.ttf" id="4_l3f4q"]
-[ext_resource type="Script" path="res://scripts/debug_fps_meter.gd" id="4_pojnu"]
+[ext_resource type="Script" path="res://scripts/debug/debug_fps_meter.gd" id="4_pojnu"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_3kgjc"]
 font = ExtResource("4_l3f4q")

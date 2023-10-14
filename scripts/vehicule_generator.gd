@@ -64,8 +64,6 @@ func _instantiate_vehicule():
 	
 	vehicule_instance.set_navigation_path(navigation_path)
 	
-	_debug_gizmos.add_line(navigation_path)
-	
 func _destroy_vehicule(vehicule_instance: NPCVehicule):
 	var navigation_path = vehicule_instance.get_navigation_path()
 	
@@ -73,8 +71,6 @@ func _destroy_vehicule(vehicule_instance: NPCVehicule):
 	vehicule_instance.path_end_reached.disconnect(_destroy_vehicule)
 	
 	vehicule_instance.queue_free()
-	
-	_debug_gizmos.remove_line(navigation_path)
 
 func _get_vehicule_trip():
 	var random_direction = _directions[randi() % _directions.size()]
