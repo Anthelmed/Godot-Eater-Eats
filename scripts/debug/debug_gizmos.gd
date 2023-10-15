@@ -1,62 +1,36 @@
+class_name DebugGizmos
 extends Node
 
-var _lines: Array[DebugGizmoLine] = []
-var _spheres: Array[DebugGizmoSphere] = []
+var _mesh_instances: Array[MeshInstance3D] = []
+var _primitive_meshes: Array[DebugGizmoPrimitiveMesh] = []
 
-var _immediate_mesh
+var _redraw: bool = false
 
-func add_sphere(sphere: DebugGizmoSphere):
-	_spheres.append(sphere)
+func add_primitive_mesh(primitive_mesh: DebugGizmoPrimitiveMesh):
+	_primitive_meshes.append(primitive_mesh)
+	_redraw = true
 	
-func remove_sphere(sphere: DebugGizmoSphere):
-	_spheres.erase(sphere)
-
-func add_line(line: DebugGizmoLine):
-	_lines.append(line)
-	
-func remove_line(line: DebugGizmoLine):
-	_lines.erase(line)
-
-func _ready():
-	_initialize()
-
-func _initialize():
-	var mesh_instance_3d = MeshInstance3D.new()
-	_immediate_mesh = ImmediateMesh.new()
-	
-	mesh_instance_3d.mesh = _immediate_mesh
-	mesh_instance_3d.cast_shadow = false
-	
-	add_child(mesh_instance_3d)
+func remove_primitive_mesh(primitive_mesh: DebugGizmoPrimitiveMesh):
+	_primitive_meshes.erase(primitive_mesh)
+	_redraw = true
 
 func _process(_delta):
-	_immediate_mesh.clear_surfaces()
+	if !_redraw: return
 	
-	_draw_lines()
-
-func _draw_meshes():
-	return
-
-func _draw_spheres():
-	return
-
-func _draw_lines():
-	for line in _lines:
-		_draw_line(line)
-
-func _draw_mesh(mesh: DebugGizmoMesh):
-	return
-
-func _draw_line(line: DebugGizmoLine):
-	var material = StandardMaterial3D.new()
+	_redraw = false
 	
-	_immediate_mesh.surface_begin(Mesh.PRIMITIVE_LINE_STRIP, material)
+	for mesh_instance in _mesh_instances:
+		mesh_instance.queue_free()
+	
+	_mesh_instances.clear()
+	
+	for primitive_mesh in _primitive_meshes:
+		var mesh_instance = MeshInstance3D.new()
 		
-	for point in line.points:
-		_immediate_mesh.surface_add_vertex(point)
+		add_child(mesh_instance)
+		_mesh_instances.append(mesh_instance)
 		
-	_immediate_mesh.surface_end()
-	
-	material.no_depth_test = true
-	material.shading_mode = StandardMaterial3D.SHADING_MODE_UNSHADED
-	material.albedo_color = line.color
+		mesh_instance.global_position = primitive_mesh.get_position()
+		mesh_instance.global_rotation = primitive_mesh.get_rotation()
+		mesh_instance.scale = primitive_mesh.get_scale()
+		mesh_instance.mesh = primitive_mesh.get_mesh()

@@ -19,8 +19,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 game_storage="*res://scripts/game_storage.gd"
-debug_gizmos="*res://scripts/debug/debug_gizmos.gd"
 road_traffic="*res://scripts/road_traffic.gd"
+debug_gizmos="*res://scripts/debug/debug_gizmos.gd"
 
 [display]
 

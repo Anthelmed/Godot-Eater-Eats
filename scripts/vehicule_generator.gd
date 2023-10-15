@@ -23,7 +23,6 @@ var _timer = Timer.new()
 var _vehicule_instances = []
 
 var _road_traffic
-var _debug_gizmos
 	
 func get_vehicule_instances():
 	return _vehicule_instances
@@ -35,7 +34,6 @@ func _ready():
 	_direction_spawning_points[Vector3(-1, 0, 0)] = right_spawning_points
 	
 	_road_traffic = get_node("/root/road_traffic")
-	_debug_gizmos = get_node("/root/debug_gizmos")
 	
 	_initialize_timer()
 

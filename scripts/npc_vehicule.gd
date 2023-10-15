@@ -4,8 +4,6 @@ extends VehiculeGeneric
 @export var distance_path_point_threshold: float = 0.75
 
 var _road_traffic
-var _debug_gizmos
-var _debug_gizmo_line
 
 var _navigation_path: PackedVector3Array
 var _current_path_point_index: int = 0
@@ -20,17 +18,10 @@ func get_navigation_path():
 func set_navigation_path(value):
 	_navigation_path = value
 
-	_debug_gizmo_line = DebugGizmoLine.new(_navigation_path, 1.0, Color.RED)
-	_debug_gizmos.add_line(_debug_gizmo_line)
-
 	_calculate_lane_path_offset()
 
 func _ready():
 	_road_traffic = get_node("/root/road_traffic")
-	_debug_gizmos = get_node("/root/debug_gizmos")
-	
-func _exit_tree():
-	_debug_gizmos.remove_line(_debug_gizmo_line)
 	
 func _physics_process(delta):
 	super(delta)
